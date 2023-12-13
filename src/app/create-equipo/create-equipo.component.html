@@ -1,0 +1,109 @@
+<div class="create-equipo">
+
+  <h3>Registrar nuevo equipo</h3>
+
+  <form [formGroup]="form">
+    <mat-form-field  appearance="outline">
+      <mat-select placeholder="Seleccione tipo de dispositivo" formControlName="tipoDispositivo" (selectionChange)="resetCheckboxes()">
+        <mat-option value="Escritorio">Computador de Escritorio</mat-option>
+        <mat-option value="Portatil">Portatil</mat-option>
+        <mat-option value="Impresora">Impresora</mat-option>
+        <mat-option value="Proyector">Proyector de video</mat-option>
+      </mat-select>
+    </mat-form-field >
+    <div *ngIf="form.get('tipoDispositivo').value === 'Proyector'">
+      <p>Su equipo de computo incluye:</p>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Parlantes">Parlantes
+      </mat-checkbox>
+    </div>
+    <div *ngIf="form.get('tipoDispositivo').value === 'Portatil'" class="mat-checkbox-group">
+      <p>Su equipo de computo incluye:</p>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Maus">Maus
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Cargador">Cargador
+      </mat-checkbox>
+    </div>
+    <div *ngIf="form.get('tipoDispositivo').value === 'Escritorio'" class="mat-checkbox-group">
+      <p>Su equipo de computo incluye:</p>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Maus">Maus
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Teclado">Teclado
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Monitor">Monitor
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Parlantes">Parlantes
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="Diadema">Diadema
+      </mat-checkbox>
+      <mat-checkbox>
+        <input type="checkbox" formControlName="CPU">CPU
+      </mat-checkbox>
+    </div>
+   
+
+    <mat-form-field appearance="outline">
+      <input placeholder="Modelo" matInput formControlName="modelo" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input placeholder="Sistema operativo" matInput formControlName="sO">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input placeholder="Estado" matInput formControlName="estado">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input placeholder="Tipo conexión a red" matInput formControlName="tipoConRed">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+      <mat-select placeholder="Seleccione sala" formControlName="sala">
+        <mat-option [value]="1">sala 1</mat-option>
+        <mat-option [value]="2">sala 2</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+      <textarea matInput placeholder="Descripcion"
+                formControlName="descripcion"></textarea>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+
+      <input placeholder="Serie" matInput formControlName="serie">
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+
+      <mat-select placeholder="Seleccione portal TIC" formControlName="categoria">
+        <mat-option value="Universidad">Universidad</mat-option>
+        <mat-option value="Colegio">Colegio</mat-option>
+        <mat-option value="CasaC">Casa de la cultura</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+
+
+    <button mat-raised-button color="warn" [disabled]="!form.valid"
+    (click)="onCreateEquipo()">
+      Registrar Equipo
+    </button>
+  </form>
+  <div>
+    <button mat-raised-button color="primary" class="volver" (click)="volverPaginaAnterior()">Volver</button>
+  </div>
+
+</div>
+
+
