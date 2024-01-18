@@ -90,9 +90,8 @@ export class CreateEquipoComponent implements OnInit {
     Categoría: ${val.categoria}
     Serie: ${val.serie}
     Sala: ${val.sala}
-    Partes: ${selectedPartes.join(', ')}
-  `;
-      
+    Partes: ${selectedPartes.join(', ')}`
+    ;
     QRCode.toDataURL(equipoData, (err, url) => {
       if (err) {
         console.error(err);
@@ -143,6 +142,4 @@ resetCheckboxes() {
     // Restablece otros controles de checkbox aquí
   });
 }
-    
-
 }
